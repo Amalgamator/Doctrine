@@ -23,7 +23,7 @@ mongoimport --db doctrine --collection buildtable --type csv --headerline --file
 mongoimport --db doctrine --collection buildings --type csv --headerline --file '.\AoE2 DE - Data - Buildings.csv'
 ```
 
-### Get dependencies
+### Get python >=3.7.0 and dependencies
 Clone this repo, change directories to where `bot.py` exists and run 
 ```bash
 pip install --upgrade pip
