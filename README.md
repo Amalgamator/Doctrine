@@ -1,4 +1,4 @@
-# Doctrine: AoE2:DE Discord Bot and Web App
+# Doctrine
 ![Status](https://img.shields.io/badge/Status-In_Development-blue?style=flat-square) ![Lines of code](https://img.shields.io/tokei/lines/github/Amalgamator/Doctrine?style=flat-square) ![GitHub contributors](https://img.shields.io/github/contributors/Amalgamator/Doctrine?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/Amalgamator/Doctrine?style=flat-square) 
 
 
