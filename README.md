@@ -22,6 +22,11 @@ mongoimport --db doctrine --collection units --type csv --headerline --file '.\A
 mongoimport --db doctrine --collection buildtable --type csv --headerline --file '.\AoE2 DE - Data - BuildTable.csv'
 mongoimport --db doctrine --collection buildings --type csv --headerline --file '.\AoE2 DE - Data - Buildings.csv'
 ```
+And from: https://docs.google.com/spreadsheets/d/1ItIrBZwrF1KsmvlIiNayALcGv0A2xHRWBAYb3OaHmBw/edit?usp=sharing
+
+```
+mongoimport --db doctrine --collection mappool --type csv --headerline --file '.\Maps - Sheet1.csv'
+```
 
 ### Get python >=3.7.0 and dependencies
 Clone this repo, change directories to where `bot.py` exists and run 
