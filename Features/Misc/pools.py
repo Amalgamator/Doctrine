@@ -28,23 +28,6 @@ class Pools(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-
-
-    def somejumbledstring(somestring, *args: str, **kwargs: str):
-
-        args[1] --> k
-        kwargs["split"] --> t
-
-        for arg in args:
-            ..
-
-        for k, v in kwargs.items():
-            ..
-
-
-    somejumbledstring("something", "l", "k", "s", split="t", somename="j")
-
-
     @commands.command(name="randmap", aliases=["pickmap", "getmap"])  # Listens for msg with prefix
     @commands.guild_only()  # No private messages
     async def randmap(self, ctx, *args: str):
