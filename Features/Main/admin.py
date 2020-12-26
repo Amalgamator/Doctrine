@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 
-class admin(commands.Cog):
+class Admin(commands.Cog):
     """Administrative commands, listeners, and optional states."""
 
     def __init__(self, bot):
@@ -17,4 +17,4 @@ class admin(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(admin(bot))
+    bot.add_cog(Admin(bot))
