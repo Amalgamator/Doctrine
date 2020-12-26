@@ -28,18 +28,34 @@ class Pools(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+
+
+    def somejumbledstring(somestring, *args: str, **kwargs: str):
+
+        args[1] --> k
+        kwargs["split"] --> t
+
+        for arg in args:
+            ..
+
+        for k, v in kwargs.items():
+            ..
+
+
+    somejumbledstring("something", "l", "k", "s", split="t", somename="j")
+
+
     @commands.command(name="randmap", aliases=["pickmap", "getmap"])  # Listens for msg with prefix
     @commands.guild_only()  # No private messages
-    async def randmap(self, ctx, *, message: str):
-        """Responds with a single map, based on label constraints."""
-        labels = message.lower().split(' ')
+    async def randmap(self, ctx, *args: str):
+        """Responds with a single map, based on arg constraints."""
         filters = {}
-        for label in labels:
-            if label[0] == "-":
-                label = label[1:]
-                filters[label] = 0
+        for arg in args:
+            if arg[0] == "-":
+                arg = arg[1:]
+                filters[arg] = 0
             else:
-                filters[label] = 1
+                filters[arg] = 1
         maps = []
         for doc in db.mappool.find(filters):
             maps.append(doc["name"])
@@ -48,17 +64,15 @@ class Pools(commands.Cog):
 
     @commands.command()  # Listens for msgs with command prefix
     @commands.guild_only()  # No private messages
-    async def listmaps(self, ctx, *, message: str):
-        """Responds with a list of maps, based on label constraints."""
-        labels = message.lower().split(' ')
+    async def listmaps(self, ctx, *args: str):
+        """Responds with a list of maps, based on arg constraints."""
         filters = {}
-        print(filters)
-        for label in labels:
-            if label[0] == "-":
-                label = label[1:]
-                filters[label] = 0
+        for arg in args:
+            if arg[0] == "-":
+                arg = arg[1:]
+                filters[arg] = 0
             else:
-                filters[label] = 1
+                filters[arg] = 1
         maps = []
         for doc in db.mappool.find(filters):
             maps.append(doc["name"])

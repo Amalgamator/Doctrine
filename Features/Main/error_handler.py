@@ -27,7 +27,7 @@ class CommandErrorHandler(commands.Cog):
             if cog._get_overridden_method(cog.cog_command_error) is not None:
                 return
 
-        ignored = (commands.CommandNotFound, )
+        ignored = (commands.CommandNotFound)
         error = getattr(error, 'original', error)
 
         if isinstance(error, ignored):
@@ -35,6 +35,9 @@ class CommandErrorHandler(commands.Cog):
 
         if isinstance(error, commands.DisabledCommand):
             await ctx.send(f'{ctx.command} has been disabled.')
+
+        if isinstance(error, commands.errors.CheckFailure):
+            await ctx.send('You do not have the correct role for this command.')
 
         elif isinstance(error, commands.NoPrivateMessage):
             try:
