@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the test branch
   push:
@@ -28,7 +28,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
           REMOTE_USER: ${{ secrets.DEPLOY_USER }}
           REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
-          SOURCE: "dist/"
+          SOURCE: "/"
           TARGET: ${{ secrets.DEPLOY_TARGET }}
       - name: Restart service
         run: ${{ secrets.COMMAND }}
