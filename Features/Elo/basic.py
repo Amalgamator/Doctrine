@@ -9,7 +9,7 @@ class BasicELO(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="duel", aliases=["fight", "vs"])  # Listens for msg with prefix
+    @commands.command(name="noob", aliases=["insult", "whoami"])  # Listens for msg with prefix
     @commands.guild_only()  # No private messages
     async def live(self, ctx, *args: str):
 
