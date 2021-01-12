@@ -36,5 +36,3 @@ pip install -r requirements.txt
 pip install pymongo
 pip install .
 ```
-
-### Ask for the .env file
