@@ -13,7 +13,7 @@ class BasicELO(commands.Cog):
     @commands.guild_only()  # No private messages
     async def live(self, ctx, *args: str):
 
-        response = "you're a noob?"
+        response = "you're a noob"
         await ctx.send(response)
 
 def setup(bot):
