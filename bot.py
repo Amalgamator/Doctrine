@@ -37,7 +37,7 @@ cogs = ["Features.Main.admin",  # admin, handler, log routines
         #"Features.Main.info",  # help, bot info, server info
         "Features.Main.error_handler",  # ll
         # "Features.Engine",# game info comnds
-        # "Features.Elo",  # player info commands
+        "Features.Elo.basic",  # player info commands
         # "Features.Boar",  # Build Order AlgoRithm
         "Features.Misc.pools"  # additional commands
         ]
