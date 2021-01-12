@@ -1,5 +1,25 @@
-# Features
+# Refactoring and optimization, uniformity and a e s t h e t i c s.
+*
+* Decide on a help message format (look at how other bots do it)
+* Manage help messages through file / db instead of in code. (embeds using strings from db / file)
+* Have a look at send_help() https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#discord.ext.commands.Context.send_help
+* Make sure invocation is done correctly where applicable https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#discord.ext.commands.Context.send_help
+*
+
+# Implement Features
+
+## Main Features
 ```
+d!help : pretty much this overview here, but prettier, more clear, useful and per command as well.
+d!about : [alias = d!doctrine] provides more contextual information about the bot, our community, etc.
+d!invite : [alies = d!discord] provides the permanent invite link to the discord
+d!yt [alias = youtube, tube] provides the link to the youtube channel
+d!
+d!report : any argument passed will be sent to the git board. Intended as a bug/issue report feature. Reviewed before submitted as issue.
+```
+## Engine Features
+```
+
 d!tech ["tech"] : gives you in-depth information about a technology ["tech"] and ANY object it applies to
 d!unit ["unit"] : gives you in-depth information about a unit ["unit"], best/worst counters, techs that apply to it
 d!hasunit ["unit"] : shows all civs that have [unit]
@@ -45,28 +65,27 @@ d!bo [code] : shows the response tied to that code
 d!bo list : gives a list of the most popular BOs as logged by d!bo usage
 d!bo web : responds with the link to the web version
 ```
-## Unsure Features
+### Misc features.
+```
+d!activity : shows a table for AoE2DE activity last 4 hours, 12 hours, day, week, month (steamapi, aoe2.net api)
+
+d!rumpel : "What is a Rumpel?" -- Debbie, Wife of the Snek
+d!thanks : a list of community members that have inspired or helped me.
+d!donate : responds with a patreon / paypool link or something, to support development, server costs and Dev coffee/tea
+d!tools : list of aoe2 tools
+d!servers : list of important aoe2 discords
+d!streams : list of noteworthy twitch streams
+```
+### Unsure Features
 ```
 d!twitch : twitch integration, will check functionality later
 d!twitch list : list of aoe2 twitch streamers
-d!tools : list of aoe2 tools
-d!servers : list of important aoe2 discords
 d!sustain [civ] ["unit"*n] (["unit"*n]) : shows you how much vils on each res you need for sustained production
                                           For example, [franks] [knight*10] [monk] --> 60f, 100g.
 d!duel ["unit"] ["unit"] : simulates a number of 1v1 fights between two opposing player-controlled units, to see who comes out on top.
 d!instahit ["unit"] ["unit"] ["tech"] ["tech"] : how many units, with perfect micro, does it take to insta-kill an opponent unit.
                                                  In other words, how many units in a control group.
-```
-## Misc features.
-```
-d!help : pretty much this overview here, but prettier, more clear, useful and per command as well.
-d!doctrine : about Doctrine, a link to our discord, etc.
-d!yt : embed link to our YT channel.
-d!activity : shows a table for AoE2DE activity last 4 hours, 12 hours, day, week, month (steamapi, aoe2.net api)
 d!members : number of discord servers using Doctrine bot
-d!rumpel : "What is a Rumpel?" -- Debbie, Wife of the Snek
-d!thanks : a list of community members that have inspired or helped me.
 d!premium [code] : enables premium features for non-Doctrine guilds, they'll get a code after payment
 d!premium members : number of discord servers using Doctrine bot premium features
-d!donate : responds with a patreon link or something, to support development, server costs and Dev coffee/tea
 ```
