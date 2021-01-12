@@ -5,7 +5,7 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 from datetime import datetime
-"""
+
 from systemd.journal import JournalHandler
 
 # Set up logging for doctrine bot through systemd journaller
@@ -15,7 +15,7 @@ handler = JournalHandler()
 logformat = '%(asctime)s:%(levelname)s:%(name)s: %(message)s'
 handler.setFormatter(logging.Formatter(logformat))
 logger.addHandler(handler)
-"""
+
 # permissions bit int
 # 649280
 
