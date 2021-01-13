@@ -46,18 +46,18 @@ cogs = ["Features.Main.admin",  # admin, handler, log routines
 if __name__ == '__main__':
     for cog in cogs:
         try:
-            logger.info(f"Loading cog {cog}...")
+            logger.debug(f"Loading cog {cog}...")
             bot.load_extension(cog)
-            logger.info(f"Loaded cog {cog}!")
+            logger.debug(f"Loaded cog {cog}!")
         except Exception as e:
             exc = "{}: {}".format(type(e).__name__, e)
-            logger.info("Failed to load cog {}\n{}".format(cog, exc))
+            logger.debug("Failed to load cog {}\n{}".format(cog, exc))
 
 
 
 @bot.event
 async def on_ready():
-    logger.info(f'\nLogged in as: {bot.user.name} - {bot.user.id}\nVersion: {discord.__version__}\n')
+    logger.debug(f'\nLogged in as: {bot.user.name} - {bot.user.id}\nVersion: {discord.__version__}\n')
     await bot.change_presence(status=discord.Status.online,
                               activity=discord.Game(os.getenv('BotStatus')))
 
@@ -67,7 +67,7 @@ async def on_command_completion(ctx):
 	fullCommandName = ctx.command.qualified_name
 	split = fullCommandName.split(" ")
 	executedCommand = str(split[0])
-	logger.info(f"Executed {executedCommand} command in {ctx.guild.name} by {ctx.message.author} (ID: {ctx.message.author.id})")
+	logger.debug(f"Executed {executedCommand} command in {ctx.guild.name} by {ctx.message.author} (ID: {ctx.message.author.id})")
 
 
 @bot.event
@@ -93,7 +93,7 @@ async def on_voice_state_update(member, prev, cur):
                 await bot.change_presence(
                     activity=discord.Activity(
                         type=discord.ActivityType.watching, name=activitystr))
-                logger.info(f"Watching stream of {member}")
+                logger.debug(f"Watching stream of {member}")
 
 
 # Run the bot with the TOKEN
