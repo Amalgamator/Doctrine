@@ -49,12 +49,11 @@ cogs = getCogNames(dirName)
 if __name__ == '__main__':
     for cog in cogs:
         try:
-            logger.debug("Loading cog %s...") % (cog)
+            logger.debug("Loading cog %s..." % (cog))
             bot.load_extension(cog)
         except Exception as e:
             exc = "{}: {}".format(type(e).__name__, e)
-            logger.debug("Loading cog %s failed with Error: %s") % (cog, e)
-
+            logger.debug("Loading cog %s failed with Error: %s" % (cog, e))
 
 
 @bot.event
@@ -79,12 +78,13 @@ async def on_command_completion(ctx):
 
 @bot.event
 async def on_command_error(ctx, error):
-    fullCName = ctx.command.qualified_name
-    co = str(fullCName.split(" ")[0])
-    logger.debug("FAILED %s COMM. IN %s BY %s (ID: %s)" % (co,
+    error = getattr(error, 'original', error)
+    logger.debug("FAILED %s COMM. IN %s BY %s (ID: %s) \n %s" % (co,
                                                            ctx.guild.name,
                                                            ctx.message.author,
-                                                           ctx.message.author.id))
+                                                           ctx.message.author.id,
+                                                           error))
+
     if isinstance(error, commands.CommandOnCooldown):
         embed = discord.Embed(
             title="Error!",
