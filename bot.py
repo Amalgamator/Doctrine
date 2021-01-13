@@ -41,9 +41,10 @@ def getCogNames(path):
             if(file.endswith(".py")):
                 try:
                     cogname = file.split("Features/")[1].replace("/",".")
+                    CogNames.append(cogname)
                 except:
                     pass
-                CogNames.append(cogname)
+
     return CogNames
 
 dirName = '/home/threevr/Doctrinetest/Features'
