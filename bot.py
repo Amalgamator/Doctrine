@@ -62,7 +62,7 @@ async def on_ready():
     na = str(bot.user.name)
     id = str(bot.user.id)
     ve = str(discord.__version__)
-    logger.debug('\nLogged in as: %s - %s\nVersion: %s\n') % (na, id, ve)
+    logger.debug('\nLogged in as: %s - %s\nVersion: %s\n' % (na, id, ve))
     await bot.change_presence(status=discord.Status.online,
                               activity=discord.Game(os.getenv('BotStatus')))
 
