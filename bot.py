@@ -44,7 +44,7 @@ def getCogNames(dirName):
         else:
             completeFileList.append(completePath)
     CogNames = []
-    for file in completeFileList:
+    for path in completeFileList:
         try:
             namespace = path.strip("/home/threevr/Doctrinetest/").split("/")[0:2]
             namespace = str.join(".",namespace)
