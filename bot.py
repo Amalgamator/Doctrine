@@ -40,7 +40,7 @@ def getCogNames(dirName):
     for file in listOfFile:
         completePath = os.path.join(dirName, file)
         if os.path.isdir(completePath):
-            completeFileList = completeFileList + getFiles(completePath)
+            completeFileList = completeFileList + getCogNames(completePath)
         else:
             completeFileList.append(completePath)
     CogNames = []

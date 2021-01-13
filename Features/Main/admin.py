@@ -11,7 +11,6 @@ handler.setFormatter(logging.Formatter(logformat))
 logger.addHandler(handler)
 
 
-
 class Admin(commands.Cog):
     """Administrative commands, listeners, and optional states."""
 
