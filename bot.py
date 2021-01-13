@@ -33,18 +33,18 @@ intents.reactions = True
 
 bot = commands.Bot(command_prefix=prefix, help_command=None, intents=intents)
 
-
 def getCogNames(dirName):
     fileset = [file for file in glob.glob(dirName + "**/*.py", recursive=True)]
     CogNames = []
     for file in fileset:
-        cogname = "Feature."+file.strip(dirName).strip(".py").replace("/",".")
+        cogname = "Features."+file.strip(dirName).strip(".py").replace("/",".")
         CogNames.append(cogname)
     return CogNames
 
 dirName = '/home/threevr/Doctrinetest/Features'
 cogs = getCogNames(dirName)
 logger.debug("Files loaded %s ", cogs)
+
 
 if __name__ == '__main__':
     for cog in cogs:
