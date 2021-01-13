@@ -1,10 +1,11 @@
-import os
+                        import os
 import logging
 import discord
 import glob
 from discord.ext import commands
 from dotenv import load_dotenv
 from datetime import datetime
+from os.path import isfile, join
 
 from systemd.journal import JournalHandler
 
@@ -33,12 +34,13 @@ intents.reactions = True
 
 bot = commands.Bot(command_prefix=prefix, help_command=None, intents=intents)
 
-def getCogNames(dirName):
-    fileset = [file for file in glob.glob(dirName + "**/*.py", recursive=True)]
+def getCogNames(path):
     CogNames = []
-    for file in fileset:
-        cogname = "Features."+file.strip(dirName).strip(".py").replace("/",".")
-        CogNames.append(cogname)
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if(file.endswith(".py")):
+                cogname = "Features."+file.strip(dirName).strip(".py").replace("/",".")
+                CogNames.append(cogname)
     return CogNames
 
 dirName = '/home/threevr/Doctrinetest/Features'
