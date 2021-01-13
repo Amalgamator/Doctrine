@@ -39,7 +39,7 @@ def getCogNames(path):
     for root, dirs, files in os.walk(path):
         for file in files:
             if(file.endswith(".py")):
-                cogname = "Features."+file.strip(dirName).strip(".py").replace("/",".")
+                cogname = "Features."+file.strip(path).strip(".py").replace("/",".")
                 CogNames.append(cogname)
     return CogNames
 
