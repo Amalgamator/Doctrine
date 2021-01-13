@@ -1,7 +1,7 @@
 import os
 import logging
 import discord
-
+import glob
 from discord.ext import commands
 from dotenv import load_dotenv
 from datetime import datetime
@@ -35,30 +35,11 @@ bot = commands.Bot(command_prefix=prefix, help_command=None, intents=intents)
 
 
 def getCogNames(dirName):
-    listOfFile = os.listdir(dirName)
-    completeFileList = list()
-    for file in listOfFile:
-        completePath = os.path.join(dirName, file)
-        if os.path.isdir(completePath):
-            completeFileList = completeFileList + getCogNames(completePath)
-        else:
-            completeFileList.append(completePath)
-    CogNames = []
-    for path in completeFileList:
-        try:
-            namespace = path.strip("/home/threevr/Doctrinetest/").split("/")
-            name = namespace[-1].strip(".py")
-            namespace = namespace[0:2]
-            namespace = str.join(".",namespace)
-            cogname = namespace + "." + name
-            CogNames.append(cogname)
-        except Exception as e:
-            logger.debug(e)
-    """
-    /home/threevr/Doctrinetest/Features/Main/admin.py
-    /home/threevr/Doctrinetest/Features/Main
-    """
-
+    fileset = [file for file in glob.glob(dirName + "**/*.py", recursive=True)]
+    Cognames = []
+    for file in fileset:
+        cogname = "Feature."+result.strip(dirName).strip(".py").replace("/",".")
+        CogNames.append(cogname)
     return CogNames
 
 dirName = '/home/threevr/Doctrinetest/Features'
