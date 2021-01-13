@@ -49,11 +49,11 @@ cogs = getCogNames(dirName)
 if __name__ == '__main__':
     for cog in cogs:
         try:
-            logger.debug("Loading cog %s..." % (cog))
+            logger.debug("Loading cog %s...", cog)
             bot.load_extension(cog)
         except Exception as e:
             exc = "{}: {}".format(type(e).__name__, e)
-            logger.debug("Loading cog %s failed with Error: %s" % (cog, e))
+            logger.debug("Loading cog %s failed with Error: %s", cog, e)
 
 
 @bot.event
@@ -61,7 +61,7 @@ async def on_ready():
     na = str(bot.user.name)
     id = str(bot.user.id)
     ve = str(discord.__version__)
-    logger.debug('\nLogged in as: %s - %s\nVersion: %s\n' % (na, id, ve))
+    logger.debug('\nLogged in as: %s - %s\nVersion: %s\n', na, id, ve)
     await bot.change_presence(status=discord.Status.online,
                               activity=discord.Game(os.getenv('BotStatus')))
 
@@ -70,20 +70,21 @@ async def on_ready():
 async def on_command_completion(ctx):
     fullCName = ctx.command.qualified_name
     co = str(fullCName.split(" ")[0])
-    logger.debug("Executed %s comm. in %s by %s (ID: %s)" % (co,
-                                                             ctx.guild.name,
-                                                             ctx.message.author,
-                                                             ctx.message.author.id))
+    logger.debug("Executed %s comm. in %s by %s (ID: %s)",
+                 co,
+                 ctx.guild.name,
+                 ctx.message.author,
+                 ctx.message.author.id)
 
 
 @bot.event
 async def on_command_error(ctx, error):
     error = getattr(error, 'original', error)
-    logger.debug("FAILED %s COMM. IN %s BY %s (ID: %s) \n %s" % (co,
-                                                           ctx.guild.name,
-                                                           ctx.message.author,
-                                                           ctx.message.author.id,
-                                                           error))
+    logger.debug("FAILED %s COMM. IN %s BY %s (ID: %s) \n %s",
+                 ctx.guild.name,
+                 ctx.message.author,
+                 ctx.message.author.id,
+                 error)
 
     if isinstance(error, commands.CommandOnCooldown):
         embed = discord.Embed(
@@ -106,8 +107,13 @@ async def on_voice_state_update(member, prev, cur):
                 await bot.change_presence(
                     activity=discord.Activity(
                         type=discord.ActivityType.watching, name=activitystr))
-                logger.debug(f"Watching stream of {member}")
+                logger.debug("Watching stream of %s",
+                             member)
 
 
 # Run the bot with the TOKEN
-bot.run(TOKEN, bot=True, reconnect=True)
+try:
+    bot.run(TOKEN, bot=True, reconnect=True)
+except Exception as e:
+    logger.debug("Bot run failed: ",
+                 e)

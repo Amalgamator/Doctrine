@@ -33,7 +33,9 @@ class Admin(commands.Cog):
             try:
                 bot.reload_extension(extension)
             except Exception as e:
-                logger.debug("Reloading extension '%s' failed: "e) % extension
+                logger.debug("Reloading extension '%s' failed: %s",
+                             extension,
+                             e)
 
         await ctx.send('{0.display_name} Reloaded cogs.'.format(ctx.author))
 
