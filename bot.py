@@ -8,7 +8,7 @@ from datetime import datetime
 
 from systemd.journal import JournalHandler
 
-# Set up logging for doctrine bot through systemd journaller
+# Set up logging for bot through systemd journaller
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 handler = JournalHandler()
@@ -45,36 +45,47 @@ def getCogNames(dirName):
 dirName = '/home/threevr/Doctrinetest/Features'
 cogs = getCogNames(dirName)
 
+
 if __name__ == '__main__':
     for cog in cogs:
         try:
-            logger.debug(f"Loading cog {cog}...")
+            logger.debug("Loading cog %s...") % (cog)
             bot.load_extension(cog)
-            logger.debug(f"Loaded cog {cog}!")
         except Exception as e:
             exc = "{}: {}".format(type(e).__name__, e)
-            logger.debug("Failed to load cog {}\n{}".format(cog, exc))
+            logger.debug("Loading cog %s failed with Error: %s") % (cog, e)
 
 
 
 @bot.event
 async def on_ready():
-    logger.debug(f'\nLogged in as: {bot.user.name} - {bot.user.id}\nVersion: {discord.__version__}\n')
+    na = str(bot.user.name)
+    id = str(bot.user.id)
+    ve = str(discord.__version__)
+    logger.debug('\nLogged in as: %s - %s\nVersion: %s\n') % (na, id, ve)
     await bot.change_presence(status=discord.Status.online,
                               activity=discord.Game(os.getenv('BotStatus')))
 
 
 @bot.event
 async def on_command_completion(ctx):
-	fullCommandName = ctx.command.qualified_name
-	split = fullCommandName.split(" ")
-	executedCommand = str(split[0])
-	logger.debug(f"Executed {executedCommand} command in {ctx.guild.name} by {ctx.message.author} (ID: {ctx.message.author.id})")
+	fullCName = ctx.command.qualified_name
+	co = str(fullCName.split(" ")[0])
+	logger.debug("Executed %s comm. in %s by %s (ID: %s)" % (co,
+                                                               ctx.guild.name,
+                                                               ctx.message.author,
+                                                               ctx.message.author.id))
 
 
 @bot.event
 async def on_command_error(ctx, error):
-	if isinstance(error, commands.CommandOnCooldown):
+    fullCName = ctx.command.qualified_name
+	co = str(fullCName.split(" ")[0])
+	logger.debug("FAILED %s COMM. IN %s BY %s (ID: %s)" % (co,
+                                                               ctx.guild.name,
+                                                               ctx.message.author,
+                                                               ctx.message.author.id))
+    if isinstance(error, commands.CommandOnCooldown):
 		embed = discord.Embed(
 			title="Error!",
 			description="This command is on a %.2fs cooldown" % error.retry_after,
