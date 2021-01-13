@@ -46,9 +46,10 @@ def getCogNames(dirName):
     CogNames = []
     for path in completeFileList:
         try:
-            namespace = path.strip("/home/threevr/Doctrinetest/").split("/")[0:2]
+            namespace = path.strip("/home/threevr/Doctrinetest/").split("/")
+            name = namespace[-1].strip(".py")
+            namespace = namespace[0:2]
             namespace = str.join(".",namespace)
-            name = path.split("/")[-1].strip(".py")
             cogname = namespace + "." + name
             CogNames.append(cogname)
         except Exception as e:
