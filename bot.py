@@ -36,7 +36,7 @@ bot = commands.Bot(command_prefix=prefix, help_command=None, intents=intents)
 
 def getCogNames(dirName):
     fileset = [file for file in glob.glob(dirName + "**/*.py", recursive=True)]
-    Cognames = []
+    CogNames = []
     for file in fileset:
         cogname = "Feature."+result.strip(dirName).strip(".py").replace("/",".")
         CogNames.append(cogname)
