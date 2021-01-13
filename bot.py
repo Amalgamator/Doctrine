@@ -69,30 +69,30 @@ async def on_ready():
 
 @bot.event
 async def on_command_completion(ctx):
-	fullCName = ctx.command.qualified_name
-	co = str(fullCName.split(" ")[0])
-	logger.debug("Executed %s comm. in %s by %s (ID: %s)" % (co,
-                                                               ctx.guild.name,
-                                                               ctx.message.author,
-                                                               ctx.message.author.id))
+    fullCName = ctx.command.qualified_name
+    co = str(fullCName.split(" ")[0])
+    logger.debug("Executed %s comm. in %s by %s (ID: %s)" % (co,
+                                                             ctx.guild.name,
+                                                             ctx.message.author,
+                                                             ctx.message.author.id))
 
 
 @bot.event
 async def on_command_error(ctx, error):
     fullCName = ctx.command.qualified_name
-	co = str(fullCName.split(" ")[0])
-	logger.debug("FAILED %s COMM. IN %s BY %s (ID: %s)" % (co,
-                                                               ctx.guild.name,
-                                                               ctx.message.author,
-                                                               ctx.message.author.id))
+    co = str(fullCName.split(" ")[0])
+    logger.debug("FAILED %s COMM. IN %s BY %s (ID: %s)" % (co,
+                                                           ctx.guild.name,
+                                                           ctx.message.author,
+                                                           ctx.message.author.id))
     if isinstance(error, commands.CommandOnCooldown):
-		embed = discord.Embed(
-			title="Error!",
-			description="This command is on a %.2fs cooldown" % error.retry_after,
-			color=discord.Colour.from_rgb(255,109,36)
-		)
-		await ctx.send(embed=embed)
-	raise error
+        embed = discord.Embed(
+            title="Error!",
+            description="This command is on a %.2fs cooldown" % error.retry_after,
+            color=discord.Colour.from_rgb(255,109,36)
+        )
+        await ctx.send(embed=embed)
+    raise error
 
 
 @bot.event
