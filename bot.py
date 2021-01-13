@@ -44,7 +44,7 @@ def getCogNames(dirName):
 
 dirName = '/home/threevr/Doctrinetest/Features'
 cogs = getCogNames(dirName)
-
+logger.debug("Files loaded %s ", cogs)
 
 if __name__ == '__main__':
     for cog in cogs:
