@@ -38,7 +38,7 @@ def getCogNames(dirName):
     fileset = [file for file in glob.glob(dirName + "**/*.py", recursive=True)]
     CogNames = []
     for file in fileset:
-        cogname = "Feature."+result.strip(dirName).strip(".py").replace("/",".")
+        cogname = "Feature."+file.strip(dirName).strip(".py").replace("/",".")
         CogNames.append(cogname)
     return CogNames
 
@@ -79,8 +79,11 @@ async def on_command_completion(ctx):
 
 @bot.event
 async def on_command_error(ctx, error):
+    fullCName = ctx.command.qualified_name
+    co = str(fullCName.split(" ")[0])
     error = getattr(error, 'original', error)
-    logger.debug("FAILED %s COMM. IN %s BY %s (ID: %s) \n %s",
+    logger.debug("FAILED COMM.%s IN %s BY %s (ID: %s) \n %s",
+                 co,
                  ctx.guild.name,
                  ctx.message.author,
                  ctx.message.author.id,
