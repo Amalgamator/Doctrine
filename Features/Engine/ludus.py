@@ -15,16 +15,16 @@ class Ludus(commands.Cog):
 
     @commands.command(name="duel", aliases=["fight", "vs"])  # Listens for msg with prefix
     @commands.guild_only()  # No private messages
-    async def randmap(self, ctx, *args: str):
+    async def duel(self, ctx, *args: str):
         """Responds with a single map, based on arg constraints."""
         filters = {}
         for arg in args:
-            #
+            pass
             # find the arg in db docs
 
         # Embed with icons & unit attributes
 
-        await ctx.send("Let's go!")
+            await ctx.send("Let's go!")
 
 def setup(bot):
     bot.add_cog(Pools(bot))
