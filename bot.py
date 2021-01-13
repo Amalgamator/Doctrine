@@ -33,15 +33,35 @@ intents.reactions = True
 
 bot = commands.Bot(command_prefix=prefix, help_command=None, intents=intents)
 
-cogs = ["Features.Main.admin",  # admin, handler, log routines
-        "Features.Main.info",  # help, bot info, server info
-        "Features.Main.error_handler",  # ll
-        "Features.Engine.ludus",# game info comnds
-        "Features.Elo.basic",  # player info commands
-        "Features.Boar.",  # Build Order AlgoRithm
-        "Features.Misc.pools"  # additional commands
-        ]
 
+def getCogNames(dirName):
+    listOfFile = os.listdir(dirName)
+    completeFileList = list()
+    for file in listOfFile:
+        completePath = os.path.join(dirName, file)
+        if os.path.isdir(completePath):
+            completeFileList = completeFileList + getFiles(completePath)
+        else:
+            completeFileList.append(completePath)
+    CogNames = []
+    for file in list:
+        try:
+            namespace = path.strip("/home/threevr/Doctrinetest/").split("/")[0:2]
+            namespace = str.join(".",namespace)
+            name = path.split("/")[-1].strip(".py")
+            cogname = namespace + "." + name
+            CogNames.append(cogname)
+        except Exception as e:
+            logger.debug(e)
+    """
+    /home/threevr/Doctrinetest/Features/Main/admin.py
+    /home/threevr/Doctrinetest/Features/Main
+    """
+
+    return CogNames
+
+dirName = '/home/threevr/Doctrinetest/Features'
+cogs = getCogNames(dirName)
 
 if __name__ == '__main__':
     for cog in cogs:
