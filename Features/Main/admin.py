@@ -1,5 +1,6 @@
 import logging
 import discord
+import sys
 from systemd.journal import JournalHandler
 from discord.ext import commands
 
