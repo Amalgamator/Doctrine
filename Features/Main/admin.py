@@ -11,6 +11,9 @@ logformat = '%(asctime)s:%(levelname)s:%(name)s: %(message)s'
 handler.setFormatter(logging.Formatter(logformat))
 logger.addHandler(handler)
 
+def restart_program():
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
 
 class Admin(commands.Cog):
     """Administrative commands, listeners, and optional states."""
@@ -39,6 +42,17 @@ class Admin(commands.Cog):
                              e)
 
         await ctx.send(f"{0.display_name} Reloaded cogs.".format(ctx.author))
+
+    @commands.command()  # Listens for msgs with command prefix
+    @commands.has_role(797016628629340200)  # message author has dev role
+    @commands.guild_only()  # No private messages
+    async def restart(self, ctx):
+        """Restarts the bot itself."""
+        logger.debug("Received restart command from %s", extension)
+        await ctx.message.delete()
+        message = await ctx.send(f"Restarting {0.display_name} .\
+                                 Allow 30s to pass...")
+        restart_program()
 
 
 def setup(bot):
