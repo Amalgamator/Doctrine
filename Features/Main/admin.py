@@ -36,12 +36,14 @@ class Admin(commands.Cog):
         try:
             for extension in self.bot.extensions:
                 self.bot.reload_extension(extension)
+            await ctx.send("{0.display_name} Reloaded cogs.".format(ctx.author))
         except Exception as e:
+            await ctx.send("{0.display_name} Failed. Rolling back.".format(ctx.author))
             logger.debug("Reloading extension '%s' failed: %s",
                          extension,
                          e)
 
-        await ctx.send("{0.display_name} Reloaded cogs.".format(ctx.author))
+
 
     @commands.command()  # Listens for msgs with command prefix
     @commands.has_role(797016628629340200)  # message author has dev role
