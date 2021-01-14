@@ -23,11 +23,6 @@ class Info(commands.Cog):
                     Label can be: walled, open, land, hybrid, water, ponds, elevation, tc",
             inline=False
         )
-        embed.add_field(
-            name="Hello World",
-            value=f"> Placeholder test command for devs.",
-            inline=False
-        )
 
         await ctx.send(embed=embed)
 
