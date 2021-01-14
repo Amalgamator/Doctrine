@@ -44,7 +44,6 @@ class Admin(commands.Cog):
                          e)
 
 
-
     @commands.command(aliases=["reboot"])  # Listens for msgs with command prefix
     @commands.has_role(797016628629340200)  # message author has dev role
     @commands.guild_only()  # No private messages
@@ -52,8 +51,7 @@ class Admin(commands.Cog):
         """Restarts the bot itself."""
         logger.debug("Received restart command from %s", ctx.author)
         await ctx.message.delete()
-        message = await ctx.send("Restarting {0.display_name} .\
-                                 Allow 30s to pass...")
+        message = await ctx.send("Restarting. Please allow 30s to pass...")
         restart_program()
 
 
