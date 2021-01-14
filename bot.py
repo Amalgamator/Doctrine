@@ -42,9 +42,11 @@ def get_cogs(cog_dir):
     file_list = []
     for dir_, _, files in os.walk(cog_dir):
         for file_name in files:
-            rel_dir = os.path.relpath(dir_, cog_dir)
-            rel_file = os.path.join(rel_dir, file_name).replace("\\",".").replace("/",".").strip(".py")
-            file_list.append(rel_file)
+            if file_name.endswith(".py"):
+                rel_dir = os.path.relpath(dir_, cog_dir)
+                rel_file = os.path.join(rel_dir, file_name).replace("\\",".").replace("/",".").strip(".py")
+                rel_file = "Features."+rel_file
+                file_list.append(rel_file)
     print(file_list)
     return file_list
 
