@@ -34,23 +34,27 @@ intents.reactions = True
 
 bot = commands.Bot(command_prefix=prefix, help_command=None, intents=intents)
 
-def getCogNames(path):
-    CogNames = []
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            if(file.endswith(".py")):
-                try:
-                    cogname = file.split("Features/")[1].replace("/",".")
-                    CogNames.append(cogname)
-                except:
-                    pass
 
-    return CogNames
+# Load the cog directory
+cog_dir = str(os.path.dirname(os.path.realpath(__file__))+"/Features")
 
-dirName = '/home/threevr/Doctrinetest/Features'
-cogs = getCogNames(dirName)
-logger.debug("Files loaded %s ", cogs)
+def get_cogs(cog_dir):
+    file_list = []
+    for dir_, _, files in os.walk(cog_dir):
+        for file_name in files:
+            rel_dir = os.path.relpath(dir_, cog_dir)
+            rel_file = os.path.join(rel_dir, file_name).replace("\\",".").replace("/",".").strip(".py")
+            file_list.append(rel_file)
+    print(file_list)
+    return file_list
 
+# Set the list of cogs to load
+try:
+    cogs = get_cogs(root_dir)
+    logger.debug("Files loaded %s ", cogs)
+except:
+    logger.debug("Files failed to load.")
+    os._exit(1)
 
 if __name__ == '__main__':
     for cog in cogs:
