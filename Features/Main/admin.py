@@ -35,7 +35,7 @@ class Admin(commands.Cog):
         """Reloads all extensions."""
         for extension in bot.extensions:
             try:
-                bot.reload_extension(extension)
+                self.bot.reload_extension(extension)
             except Exception as e:
                 logger.debug("Reloading extension '%s' failed: %s",
                              extension,
