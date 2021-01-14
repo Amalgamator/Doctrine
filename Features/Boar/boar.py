@@ -25,4 +25,4 @@ class Boar(commands.Cog):
         await ctx.send(f"I'm boaring {0.display_name}.".format(ctx.author))
 
 def setup(bot):
-    bot.add_cog(Admin(bot))
+    bot.add_cog(Boar(bot))
