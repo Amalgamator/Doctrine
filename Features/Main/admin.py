@@ -14,6 +14,7 @@ logformat = '%(asctime)s:%(levelname)s:%(name)s: %(message)s'
 handler.setFormatter(logging.Formatter(logformat))
 logger.addHandler(handler)
 
+load_dotenv()
 ADMIN_ROLE = int(os.getenv('ADMIN_ROLE'))
 
 def restart_program():
