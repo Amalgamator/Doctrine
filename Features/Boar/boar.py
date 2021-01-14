@@ -22,7 +22,7 @@ class Boar(commands.Cog):
     @commands.guild_only()  # No private messages
     async def boar(self, ctx):
         """Placeholder boar command."""
-        await ctx.send(f"I'm boaring {0.display_name}.".format(ctx.author))
+        await ctx.send("I'm boaring {0.display_name}.".format(ctx.author))
 
 def setup(bot):
     bot.add_cog(Boar(bot))
