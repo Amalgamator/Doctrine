@@ -33,13 +33,13 @@ class Admin(commands.Cog):
     @commands.guild_only()  # No private messages
     async def reload(self, ctx):
         """Reloads all extensions."""
-        for extension in bot.extensions:
-            try:
+        try:
+            for extension in self.bot.extensions:
                 self.bot.reload_extension(extension)
-            except Exception as e:
-                logger.debug("Reloading extension '%s' failed: %s",
-                             extension,
-                             e)
+        except Exception as e:
+            logger.debug("Reloading extension '%s' failed: %s",
+                         extension,
+                         e)
 
         await ctx.send("{0.display_name} Reloaded cogs.".format(ctx.author))
 
