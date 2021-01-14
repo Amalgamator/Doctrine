@@ -50,7 +50,7 @@ def get_cogs(cog_dir):
 
 # Set the list of cogs to load
 try:
-    cogs = get_cogs(root_dir)
+    cogs = get_cogs(cog_dir)
     logger.debug("Files loaded %s ", cogs)
 except:
     logger.debug("Files failed to load.")
