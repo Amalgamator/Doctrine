@@ -1,3 +1,4 @@
+import logging
 import discord
 from systemd.journal import JournalHandler
 from discord.ext import commands
@@ -22,7 +23,7 @@ class Admin(commands.Cog):
     @commands.guild_only()  # No private messages
     async def hello(self, ctx):
         """Responds with a hello message if a dev says hello."""
-        await ctx.send('Hello developer {0.display_name}.'.format(ctx.author))
+        await ctx.send(f"Hello developer {0.display_name}.".format(ctx.author))
 
     @commands.command()  # Listens for msgs with command prefix
     @commands.has_role(797016628629340200)  # message author has dev role
@@ -37,7 +38,7 @@ class Admin(commands.Cog):
                              extension,
                              e)
 
-        await ctx.send('{0.display_name} Reloaded cogs.'.format(ctx.author))
+        await ctx.send(f"{0.display_name} Reloaded cogs.".format(ctx.author))
 
 
 def setup(bot):

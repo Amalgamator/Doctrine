@@ -8,7 +8,7 @@ db = dbclient.doctrine
 coll = db.units
 
 class Ludus(commands.Cog):
-    """Commands pertaining to objects and their combat abilities."""
+    """Commands pertaining to objects info from the engine files, like units."""
 
     def __init__(self, bot):
         self.bot = bot
@@ -17,14 +17,7 @@ class Ludus(commands.Cog):
     @commands.guild_only()  # No private messages
     async def duel(self, ctx, *args: str):
         """Responds with a single map, based on arg constraints."""
-        filters = {}
-        for arg in args:
-            pass
-            # find the arg in db docs
-
-        # Embed with icons & unit attributes
-
-            await ctx.send("Let's go!")
+        await ctx.send(f"Let's go!")
 
 def setup(bot):
-    bot.add_cog(Pools(bot))
+    bot.add_cog(Ludus(bot))
