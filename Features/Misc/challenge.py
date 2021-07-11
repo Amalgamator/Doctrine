@@ -10,14 +10,17 @@ class Challenge(commands.Cog):
         self.bot = bot
 
     @commands.command(name="challenge")
-    @bot.command()
-    async def text(self, ctx):
-        msg = await ctx.channel.send(' the text ')
-        await msg.add_reaction('🏆')
-    @client.event
-    async def on_reaction_add(reaction, user):
-        if reaction.emoji('🏆'):
-            await reaction.channel.send('Test')
+    async def something():
+    #
+    """
+    0) challenger mentions @challengee with keyword challenge
+    1) mentioned user becomes role 'challengee'
+    2) enable listener: "if challenger reacts with trophy,
+        challengee becomes role challenger,
+        remove challenger role from challenger"
+    3) if challenger challenges previous challenger, ignore
+    4)
+    """
 
 def setup(bot):
     bot.add_cog(Challenge(bot))
