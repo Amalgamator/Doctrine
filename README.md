@@ -70,8 +70,6 @@ d!activity : shows a table for AoE2DE activity last 4 hours, 12 hours, day, week
 d!members : number of discord servers using Doctrine bot
 d!rumpel : "What is a Rumpel?" -- Debbie, Wife of the Snek
 d!thanks : a list of community members that have inspired or helped me.
-d!premium [code] : enables premium features for non-Doctrine guilds, they'll get a code after payment
-d!premium members : number of discord servers using Doctrine bot premium features
 d!donate : responds with a patreon link or something, to support development, server costs and Dev coffee/tea
 ```
 
