@@ -21,6 +21,44 @@ def generate_mappool():
         mappool.append(map)
     return mappool
 
+civnames = ["Aztecs"
+        "Berbers",
+        "Britons",
+        "Bulgarians",
+        "Burmese",
+        "Burgundians",
+        "Byzantines",
+        "Celts",
+        "Chinese",
+        "Cumans",
+        "Ethiopians",
+        "Franks",
+        "Goths",
+        "Huns",
+        "Incas",
+        "Indians",
+        "Italians",
+        "Japanese",
+        "Khmer",
+        "Koreans",
+        "Lithuanians",
+        "Magyars",
+        "Malay",
+        "Malians",
+        "Mayans",
+        "Mongols",
+        "Persians",
+        "Portuguese",
+        "Saracens",
+        "Sicilians",
+        "Slavs",
+        "Spanish",
+        "Tatars",
+        "Teutons",
+        "Turks",
+        "Vietnamese",
+        "Vikings"]
+
 
 class Pools(commands.Cog):
     """Commands pertaining to map and civ pools."""
@@ -67,6 +105,12 @@ class Pools(commands.Cog):
         response = response + "```"
         await ctx.send(response)
 
+    @commands.command()  # Listens for msgs with command prefix
+    @commands.guild_only()  # No private messages
+    async def randciv(self, ctx, *args: str):
+        """Responds with a random civ."""
+        selection = random.choice(civnames)
+        await ctx.send(response)
 
 def setup(bot):
     bot.add_cog(Pools(bot))

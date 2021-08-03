@@ -16,7 +16,7 @@ class Ludus(commands.Cog):
     @commands.command(name="duel", aliases=["fight", "vs"])  # Listens for msg with prefix
     @commands.guild_only()  # No private messages
     async def duel(self, ctx, *args: str):
-        """Responds with a single map, based on arg constraints."""
+        """Responds with the result of a duel."""
         await ctx.send(f"Let's go!")
 
 def setup(bot):
