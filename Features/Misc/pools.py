@@ -109,7 +109,7 @@ class Pools(commands.Cog):
                 "Vietnamese",
                 "Vikings"]
         selection = random.choice(civnames)
-        await ctx.send(response)
+        await ctx.send(selection)
 
 def setup(bot):
     bot.add_cog(Pools(bot))
