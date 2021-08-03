@@ -69,7 +69,7 @@ class Pools(commands.Cog):
 
     @commands.command()  # Listens for msgs with command prefix
     @commands.guild_only()  # No private messages
-    async def randciv(self, ctx, *args: str):
+    async def randciv(self, ctx):
         """Responds with a random civ."""
         civnames = ["Aztecs"
                 "Berbers",
