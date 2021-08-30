@@ -24,7 +24,8 @@ def getDamagePerHit(attacker, defender, elevation="0", distance):
     damage = round(max(1, damage * ele_mod), 2)
 
     conditionals = [attacker.blast["attlvl"] <= defender.blast["deflvl"],
-                    attacker.r[1]
+                    attacker.blast["width"] > 0]
+    
     if all(conditionals):
         return 5
 
