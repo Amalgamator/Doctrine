@@ -41,18 +41,3 @@ def getAttackDelay(animationDuration, FrameDelay, FramesperAngle):
         return animationDuration * 60 * (FrameDelay / FramesperAngle)
     # otherwise, *should* be
         return animationDuration / 2
-
-def duel(unit1, unit2):
-    """Simulate a fight between unit1 and unit2."""
-    # set the units apart by the LOS of the highest range unit
-    distance = max(unit1.LOS, unit2.LOS)
-    while (unit1.HP > 0) and (unit2.HP > 0):
-        # HP
-        # Speed
-        # rof
-        # r
-        getAttackDelay
-        # accuracy
-        # projspeed
-        # projarc
-        # blast
