@@ -37,7 +37,10 @@ def getDamagePerHit(attacker, defender, elevation="0", distance):
     return damage
 
 def getAttackDelay(animationDuration, FrameDelay, FramesperAngle):
-    return animationDuration * 60 * (FrameDelay / FramesperAngle)
+    # if the unit is a ranged unit,
+        return animationDuration * 60 * (FrameDelay / FramesperAngle)
+    # otherwise, *should* be
+        return animationDuration / 2
 
 def duel(unit1, unit2):
     """Simulate a fight between unit1 and unit2."""
