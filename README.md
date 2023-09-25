@@ -1,5 +1,8 @@
 # Doctrine
-![Status](https://img.shields.io/badge/Status-In_Development-blue?style=flat-square) ![Lines of code](https://img.shields.io/tokei/lines/github/Amalgamator/Doctrine?style=flat-square) ![GitHub contributors](https://img.shields.io/github/contributors/Amalgamator/Doctrine?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/Amalgamator/Doctrine?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Discontinued-orange) ![GitHub last commit](https://img.shields.io/github/last-commit/Amalgamator/Doctrine?style=flat-square)
+
+
+
 
 ## About
 This project aims to build a fully fleshed out Discord bot for the Age of Empires II community.
